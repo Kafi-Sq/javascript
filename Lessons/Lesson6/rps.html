@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+    <p>Rock Paper Scissors</p>
+
+    <button onclick="
+        const num = Math.random();
+        let move = ''
+        let res = ''
+
+        if(num >= 0 && num <= 1/3){
+            move = 'Rock'
+        }else if (num >= 1/3 && num <= 2/3) {
+            move = 'Paper'
+        }else {
+            move = 'Scissors'
+        }
+
+        if(move === 'Rock'){
+            res = 'tie'
+        }else if(move === 'Paper'){
+            res = 'lose'
+        }else {
+            res = 'win'
+        }
+
+        alert(`You picked rock, the computer picked ${move}. You ${res}.`)
+    ">Rock
+    </button>
+
+    <button onclick="
+        const paperNum = Math.random();
+        let paperMove = ''
+        let paperRes = ''
+
+        if(paperNum >= 0 && paperNum <= 1/3){
+            paperMove = 'Rock'
+        }else if (paperNum >= 1/3 && paperNum <= 2/3) {
+            paperMove = 'Paper'
+        }else {
+            paperMove = 'Scissors'
+        }
+
+        if(paperMove === 'Rock'){
+            paperRes = 'win'
+        }else if(paperMove === 'Paper'){
+            paperRes = 'tie'
+        }else {
+            paperRes = 'lose'
+        }
+
+        alert(`You picked paper, the computer picked ${paperMove}. You ${paperRes}.`)
+    ">Paper
+    </button>
+
+    <button onclick="
+        const rockNum = Math.random();
+        let rockMove = ''
+        let rockRes = ''
+
+        if(rockNum >= 0 && rockNum <= 1/3){
+            rockMove = 'Rock'
+        }else if (rockNum >= 1/3 && rockNum <= 2/3) {
+            rockMove = 'Paper'
+        }else {
+            rockMove = 'Scissors'
+        }
+
+        if(rockMove === 'Rock'){
+            rockRes = 'lose'
+        }else if(rockMove === 'Paper'){
+            rockRes = 'win'
+        }else {
+            rockRes = 'tie'
+        }
+
+        alert(`You picked scissors, the computer picked ${rockMove}. You ${rockRes}.`)
+    ">Scissors
+    </button>
+
+
+
+    <script>
+
+    </script>
+</body>
+
+</html>

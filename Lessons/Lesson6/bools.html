@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booleans & If Statements</title>
+</head>
+
+<body>
+    <script>
+        true
+        false
+
+        console.log(3 < 5)
+
+        // true
+        console.log('3.00' == 3)
+        // false
+        console.log('3.00' === 3)
+
+        if (false) {
+            console.log('Hello')
+        } else {
+            console.log('Else')
+        }
+
+        const age = 15
+
+        if (age >= 16) {
+            console.log('You can drive')
+        } else if (age >= 14) {
+            console.log('Almost there')
+        } else {
+            console.log('You cannot drive')
+        }
+
+        // Logical Operators
+        // &&, ||, and !
+
+        // Truthy and falsy values
+        // Falsy values - 0, '', nan, undefined, null 
+        // Every other value is truthy
+        if(0) {
+            console.log('Falsy')
+        } else if(1) {
+            console.log('Truthy')
+        }
+        // Can be used as a shortcut
+        const cartQuantity = 5
+        if (cartQuantity) {
+            console.log('Cart has products')
+        }
+
+        console.log(!0)
+
+        // Terniary operator, can be saved in a variable
+        const result = true ? 'truthy' : 'falsy'
+        console.log(result)
+
+        // && operator stops the right side from running - Guard operator
+        const res = false && console.log('Hello')
+        console.log(res)
+
+        const message = 5 && console.log('hello')
+        console.log(message)
+
+        // Defualt operator 
+        const currency = '' || 'USD'
+        console.log(currency)
+
+    </script>
+</body>
+
+</html>
