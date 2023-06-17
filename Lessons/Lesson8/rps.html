@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+    <p>Rock Paper Scissors</p>
+
+    <button onclick="play('rock')">Rock</button>
+    <button onclick="play('paper')">Paper</button>
+    <button onclick="play('scissors')">Scissors</button>
+    <button onclick="
+        score.wins = 0
+        score.losses = 0
+        score.ties = 0
+    ">Reset score</button>
+
+    <script>
+        const score = {
+            wins: 0,
+            losses: 0,
+            ties: 0
+        }
+
+        function play(playerMove) {
+            let move = computerMove()
+            let res = ''
+
+            if (playerMove === 'scissors') {
+                if (move === 'Rock') {
+                    res = 'lose'
+                } else if (move === 'Paper') {
+                    res = 'win'
+                } else {
+                    res = 'tie'
+                }
+            } else if (playerMove === 'paper') {
+                if (move === 'Rock') {
+                    res = 'win'
+                } else if (move === 'Paper') {
+                    res = 'tie'
+                } else {
+                    res = 'lose'
+                }
+            } else {
+                if (move === 'Rock') {
+                    res = 'tie'
+                } else if (move === 'Paper') {
+                    res = 'lose'
+                } else {
+                    res = 'win'
+                }
+            }
+
+            if (res === 'win') {
+                score.wins++
+            } else if (res === 'lose') {
+                score.losses++
+            } else if (res === 'tie') {
+                score.ties++
+            }
+
+            alert(`You picked ${playerMove}, the computer picked ${move}. You ${res}.
+wins: ${score.wins} ties: ${score.ties} losses: ${score.losses}`)
+        }
+
+        function computerMove() {
+            let move = ''
+            const num = Math.random();
+
+            if (num >= 0 && num <= 1 / 3) {
+                move = 'Rock'
+            } else if (num >= 1 / 3 && num <= 2 / 3) {
+                move = 'Paper'
+            } else {
+                move = 'Scissors'
+            }
+
+            return move
+        }
+    </script>
+</body>
+
+</html>
