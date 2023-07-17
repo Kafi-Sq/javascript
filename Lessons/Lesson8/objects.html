@@ -9,22 +9,105 @@
 
 
     <script>
-        const product = {
-            name: 'Socks',
-            price: 1099
+        // const product = {
+        //     name: 'Socks',
+        //     price: 1099
+        // }
+        // console.log(product)
+        // console.log(product.name)
+        // console.log(product.price)
+
+        // product.name = 'cotton socks'
+        // console.log(product)
+
+        // product.newProperty = true
+        // console.log(product)
+
+        // delete product.newProperty
+        // console.log(product)
+
+        // const product2 = {
+        //     name: 'shirt',
+        //     // The []s are optional
+        //     ['delivery-time']: '1 day',
+        //     // Nested object
+        //     rating: {
+        //         stars: 4.5,
+        //         count: 87
+        //     },
+        //     fun: function function1(){
+        //         console.log('Function inside object')
+        //     }
+        // }
+        // console.log(product2)
+        // // . notation
+        // console.log(product2.name)
+        // // Bracket notation
+        // console.log(product2['name'])
+        // // If you have a key name that has a dash, use bracket notation. The . notation thinks you're tryna do math.
+        // console.log(product2['delivery-time'])
+
+        // console.log(product2.rating.count)
+        // console.log(product2.rating.rating)
+        // // Function inside an object is a method
+        // product2.fun()
+        // console.log(typeof console)
+
+        // // Turns JS object into JSON string
+        // JSON.stringify(product2)
+        // console.log(product2)
+
+        // // Turns JSON string into JS object
+        // const jsonString = JSON.stringify(product2)
+        // console.log(JSON.parse(jsonString))
+
+        // Auto-boxing - JS automatically places values in an object box which makes it possible for strings like hello to have methods and properties
+        console.log('hello'.length)
+        console.log('hello'.toUpperCase())
+
+        // Objects are refrences
+        const object1 = {
+            message: 'hello'
         }
-        console.log(product)
-        console.log(product.name)
-        console.log(product.price)
+        // This doesn't make a copy of the object, it just makes a copy of the refrence
+        const object2 = object1
 
-        product.name = 'cotton socks'
-        console.log(product)
+        object1.message = 'Good job!'
+        // The message propery can be changed despite the object being made with const, that's cuz the object is just a refrence
+        console.log(object1)
+        console.log(object2)
 
-        product.newProperty = true
-        console.log(product)
+        // Objects can't be compared even if they have the same properties because it's 2 different refrences
+        const object3 = {
+            message: 'Good job!'
+        }
+        console.log(object3 === object1)
+        console.log(object2 === object1)
 
-        delete product.newProperty
-        console.log(product)
+        const object4 = {
+            message: 'Good job!',
+            price: 799
+        }
+        //const message = object4.message
+        // Destructuring - does what the above line does but shorter.
+        const { message, price } = object4
+        console.log(message)
+        console.log(price)
+
+        const object5 = {
+            //message: message
+            // Shorthand
+            message,
+            // method: function function1() {
+            //     console.log('method')
+            // },
+            // Shorthand for the above lines
+            method() {
+                console.log('method')
+            },
+        }
+        console.log(object5)
+        object5.method()
     </script>
 </body>
 </html>
