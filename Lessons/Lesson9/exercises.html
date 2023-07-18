@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 9 Exercises</title>
+</head>
+
+<body>
+    <button>9a</button>
+    <button class="js-nineb">9b</button>
+
+    <br>
+    <br>
+
+    <button onclick="clicked('heads')">heads</button>
+    <button onclick="clicked('tails')">tails</button>
+    <p class="js-choice">You chose:</p>
+
+    <input class="js-input" type="text" placeholder="Name" onkeydown="if(event.key==='Enter'){displayName()}">
+    <button onclick="displayName()">Submit</button>
+    <p class="js-name"></p>
+
+    <input type="text" class="js-inputtwo" placeholder="Type something" onkeyup="displayType()">
+    <p class="js-type"></p>
+
+    <script>
+        console.log(document.querySelector('button'))
+        document.querySelector('.js-nineb').innerText = '9b done!'
+
+        function clicked(choice) {
+            document.querySelector('.js-choice').innerText = `You chose: ${choice}`
+        }
+
+        function displayName() {
+            const val = document.querySelector('.js-input').value
+            document.querySelector('.js-name').innerText = `Your name is ${val}`
+        }
+
+        function displayType() {
+            let inputEl = document.querySelector('.js-inputtwo')
+            document.querySelector('.js-type').innerText = inputEl.value
+        }
+    </script>
+</body>
+
+</html>
