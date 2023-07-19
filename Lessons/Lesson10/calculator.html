@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="calculator.css">
+    <title>Calculator App</title>
+</head>
+<body>
+    <p class="calculation"></p>
+    <p>
+        <button onclick="numPicked('1')">1</button>
+        <button onclick="numPicked('2')">2</button>
+        <button onclick="numPicked('3')">3</button>
+        <button onclick="numPicked('+')" class="yellow">+</button>
+    </p>
+    <p>
+        <button onclick="numPicked('4')">4</button>
+        <button onclick="numPicked('5')">5</button>
+        <button onclick="numPicked('6')">6</button>
+        <button onclick="numPicked('-')" class="yellow">-</button>
+    </p>
+    <p>
+        <button onclick="numPicked('7')">7</button>
+        <button onclick="numPicked('8')">8</button>
+        <button onclick="numPicked('9')">9</button>
+        <button onclick="numPicked('*')" class="yellow">*</button>
+    </p>
+    <p>
+        <button onclick="numPicked('0')">0</button>
+        <button onclick="numPicked('.')">.</button>
+        <button onclick="calcTotal()">=</button>
+        <button onclick="numPicked('/')" class="yellow">/</button>
+    </p>
+    <p>
+        <button onclick="clearVal()">Clear</button>
+    </p>
+
+
+    <script>
+        let isEmpty = true
+
+        function numPicked(num){
+            let val = document.querySelector('.calculation')
+
+            if(isEmpty === false && num !== '+' && num !== '-' && num !== '*' && num !== '/' && num !== '.'){
+                val.innerText = ''
+            }
+
+            val.innerText += num
+            console.log(typeof val.innerText)
+            isEmpty = true
+        }
+
+        function calcTotal() {
+            let val = document.querySelector('.calculation')
+            val.innerText = eval(val.innerText)
+            isEmpty = false
+        }
+
+        function clearVal() {
+            let val = document.querySelector('.calculation')
+            val.innerText = ''
+        }
+    </script>
+</body>
+</html>

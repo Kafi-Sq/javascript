@@ -1,0 +1,30 @@
+body {
+    font-family: Arial;
+}
+
+button {
+    height: 60px;
+    width: 60px;
+    border-radius: 80px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 0px 4px;
+}
+
+button:active {
+    background-color: rgb(206, 206, 206);
+}
+
+.calculation {
+    font-size: 32px;
+    margin-left: 10px;
+}
+
+.yellow {
+    background-color: rgb(255, 204, 0);
+}
+
+.yellow:active {
+    background-color: rgb(198, 159, 4);
+}
