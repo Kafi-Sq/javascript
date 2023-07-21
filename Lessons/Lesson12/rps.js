@@ -22,15 +22,40 @@ let intervalID
 function autoPlay() {
     if (!playing) {
         let rand = pickComputerMove()
-        intervalID = setInterval(function () {
+        intervalID = setInterval(() => {
             playGame(rand)
         }, 1000)
         playing = true
-    }else {
+    } else {
         clearInterval(intervalID)
         playing = false
     }
 }
+
+document.querySelector('.rock')
+    .addEventListener('click', () => {
+        playGame('rock')
+    })
+document.querySelector('.paper')
+    .addEventListener('click', () => {
+        playGame('paper')
+    })
+document.querySelector('.scissors')
+    .addEventListener('click', () => {
+        playGame('scissors')
+    })
+
+document.body.addEventListener('keydown', (event) => {
+    if(event.key === 'r'){
+        playGame('rock')
+    }
+    if(event.key === 'p'){
+        playGame('paper')
+    }
+    if(event.key === 's'){
+        playGame('scissors')
+    }
+})
 
 function playGame(playerMove) {
     const computerMove = pickComputerMove();
