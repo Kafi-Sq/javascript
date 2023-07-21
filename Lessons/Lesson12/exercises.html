@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 12 Exercises</title>
+</head>
+
+<body>
+    <button onclick="change()" class="js-change">Start</button>
+    <button onclick="addToCart()">Add to cart</button>
+    <p class="js-added"></p>
+
+    <button onclick="messages++; display()">Add</button>
+    <button onclick="
+        if(messages > 0) {
+            messages--
+        }
+        if(messages === 0) {
+            stopDisplaying()
+        }
+    ">Remove</button>
+
+    <script>
+        let messages = 2
+        let intervalID, playing
+
+        function display() {
+            if(playing) {
+                return
+            }
+            playing = true
+
+            intervalID = setInterval(function () {
+                if (document.title === 'App') {
+                    document.title = `(${messages}) New messages`
+                } else {
+                    document.title = 'App'
+                }
+            }, 1000)
+        }
+
+
+        function stopDisplaying() {
+            playing = false
+            clearInterval(intervalID)
+            document.title = 'App'
+        }
+
+
+
+        const add = function () {
+            console.log(2 + 3)
+        }
+        add()
+        add()
+
+        function runTwice(param) {
+            param()
+            param()
+        }
+        runTwice(function () {
+            add()
+        })
+
+        function change() {
+            document.querySelector('.js-change').innerText = 'Loading...'
+            setTimeout(function () {
+                document.querySelector('.js-change').innerText = 'Finished'
+            }, 1000)
+        }
+
+        function addToCart() {
+            document.querySelector('.js-added').innerText = 'Added'
+            setTimeout(function () {
+                document.querySelector('.js-added').innerText = ''
+            }, 2000)
+        }
+
+    </script>
+</body>
+
+</html>

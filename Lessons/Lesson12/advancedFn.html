@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Functions</title>
+</head>
+<body>
+
+
+    <script>
+        function greeting() {
+            console.log('Hello')
+        }
+        greeting()
+
+        // Functions are values and can be saved in variables
+        const num = 2
+        const function1 = function() {
+            console.log('Hello 2')
+        }
+        console.log(function1)
+        console.log(typeof function1)
+        function1()
+
+        const obj1 = {
+            num: 2,
+            func: function(){
+                console.log('Hello 3')
+            }
+        }
+        // Functions in objects are methods
+        obj1.func()
+
+        function display(param) {
+            console.log(param)
+        }
+        display(2)
+
+        // You can pass functions as parameters
+        function run(param) {
+            param()
+        }
+        // Function being passed into another function is called a callback
+        run(function () {
+            console.log('Hello 4')
+        })
+        
+
+        // Asynchronous code
+        setTimeout(function() {
+            console.log('Timeout')
+            console.log('Timeout 2')
+        }, 3000)
+
+        console.log('Next line')
+
+        // Keeps running the function every 3 seconds
+        setInterval(function() {
+            console.log('Interval')
+        }, 3000)
+
+        console.log('Next line 2')
+
+        [
+            'make dinner',
+            'wash dishes',
+            'watch youtube'
+        ].forEach(function(value, index) {
+            if(value === 'wash dishes'){
+                return
+            }
+            console.log(value)
+            console.log(index)
+        })
+    </script>
+</body>
+</html>
