@@ -33,7 +33,9 @@ function reset() {
 
 // COUNTDOWN
 
-let hours, mins, secs = 0
+let hours = 0
+let mins = 0
+let secs = 0
 let interID
 
 let hoursInput = document.querySelector('.hours')
@@ -43,6 +45,8 @@ let beginBtn = document.querySelector('.beginBtn')
 let displayCount = document.querySelector('.displayCount')
 let isPaused = false
 
+displayCount.innerText = `0${mins}:0${secs}`
+
 beginBtn.addEventListener('click', () => {
     determine()
 })
@@ -51,40 +55,32 @@ beginBtn.addEventListener('click', () => {
 function determine() {
     if (beginBtn.innerText === 'Start') {
         startCount()
-    }else if(beginBtn.innerText === 'Pause') {
+        beginBtn.classList.add('yellow')
+    } else if (beginBtn.innerText === 'Pause') {
         pauseCount()
+        beginBtn.classList.remove('yellow')
     }
 }
 
-
-function startCount() {
-    beginBtn.innerText = 'Pause'
-
-    if(isPaused === true){
-        hours = hours
-        mins = mins
-        secs = secs
-        isPaused = false
-    }else {
-        hours = Number(hoursInput.value)
-        mins = Number(minsInput.value)
-        secs = Number(secsInput.value)
-    }
-    
-    hoursInput.value = ''
-    minsInput.value = ''
-    secsInput.value = ''
-
+function displayTime() {
     if (hours === 0) {
         if (mins < 10) {
-            displayCount.innerText = `0${mins}:${secs}`
+            if (secs < 10) {
+                displayCount.innerText = `0${mins}:0${secs}`
+            } else {
+                displayCount.innerText = `0${mins}:${secs}`
+            }
         } else {
             displayCount.innerText = `${mins}:${secs}`
         }
     } else {
         if (hours < 10) {
             if (mins < 10) {
-                displayCount.innerText = `0${hours}:0${mins}:${secs}`
+                if (secs < 10) {
+                    displayCount.innerText = `0${hours}:0${mins}:0${secs}`
+                } else {
+                    displayCount.innerText = `0${hours}:0${mins}:${secs}`
+                }
             } else {
                 displayCount.innerText = `0${hours}:${mins}:${secs}`
             }
@@ -92,6 +88,24 @@ function startCount() {
             displayCount.innerText = `${hours}:${mins}:${secs}`
         }
     }
+}
+
+
+function startCount() {
+    beginBtn.innerText = 'Pause'
+
+    if (isPaused === true) {
+        hours = hours
+        mins = mins
+        secs = secs
+        isPaused = false
+    } else {
+        hours = Number(hoursInput.value)
+        mins = Number(minsInput.value)
+        secs = Number(secsInput.value)
+    }
+
+    displayTime()
 
     interID = setInterval(() => {
         secs--
@@ -108,23 +122,7 @@ function startCount() {
             secs = 59
         }
 
-        if (hours === 0) {
-            if (mins < 10) {
-                displayCount.innerText = `0${mins}:${secs}`
-            } else {
-                displayCount.innerText = `${mins}:${secs}`
-            }
-        } else {
-            if (hours < 10) {
-                if (mins < 10) {
-                    displayCount.innerText = `0${hours}:0${mins}:${secs}`
-                } else {
-                    displayCount.innerText = `0${hours}:${mins}:${secs}`
-                }
-            } else {
-                displayCount.innerText = `${hours}:${mins}:${secs}`
-            }
-        }
+        displayTime()
     }, 1000)
 }
 
@@ -136,26 +134,13 @@ function pauseCount() {
 
 function cancelCount() {
     clearInterval(interID)
+    beginBtn.innerText = 'Start'
     hours = 0
     mins = 0
     secs = 0
-    if (hours === 0) {
-        if (mins < 10) {
-            displayCount.innerText = `0${mins}:${secs}`
-        } else {
-            displayCount.innerText = `${mins}:${secs}`
-        }
-    } else {
-        if (hours < 10) {
-            if (mins < 10) {
-                displayCount.innerText = `0${hours}:0${mins}:${secs}`
-            } else {
-                displayCount.innerText = `0${hours}:${mins}:${secs}`
-            }
-        } else {
-            displayCount.innerText = `${hours}:${mins}:${secs}`
-        }
-    }
-    beginBtn.innerText = 'Start'
+    hoursInput.value = 0
+    minsInput.value = 0
+    secsInput.value = 0
+    beginBtn.classList.remove('yellow')
+    displayTime()
 }
-

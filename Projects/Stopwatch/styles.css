@@ -1,0 +1,95 @@
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.stopwatch {
+    height: 50vh;
+    background-color: rgb(22, 22, 22);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.stopwatch p,
+.countDown p {
+    margin: 10px 0;
+    font-size: 80px;
+    font-weight: bold;
+    color: white;
+}
+
+.countDown p {
+    color: black;
+}
+
+.stopwatch button,
+.countDown button {
+    padding: 8px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.countDown div:nth-child(2) {
+    text-align: center;
+}
+
+.countDown button {
+    margin: 10px 0;
+    background-color: rgb(31, 225, 31);
+}
+
+.countDown .yellow {
+    background-color: rgb(245, 165, 54);
+}
+
+.countDown select {
+    padding: 6px;
+    border: none;
+    background-color: rgb(22, 22, 22);
+    cursor: pointer;
+    margin-bottom: 10px;
+    color: white;
+    font-size: 16px;
+}
+
+.countDown button:nth-child(2) {
+    background-color: rgb(236, 64, 64);
+}
+
+.stopwatch button:first-child {
+    background-color: rgb(31, 225, 31);
+}
+
+.stopwatch button:nth-child(2) {
+    background-color: rgb(236, 64, 64);
+}
+
+.stopwatch button:first-child:active {
+    background-color: rgb(25, 194, 25);
+}
+
+.stopwatch button:nth-child(2):active {
+    background-color: rgb(230, 48, 48);
+}
+
+.stopwatch button:nth-child(3):active {
+    background-color: rgb(179, 179, 179);
+}
+
+.countDown {
+    background-color: rgb(242, 242, 242);
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
