@@ -21,10 +21,44 @@ ninthBtn.addEventListener('click', () => { play(9, ninthBtn) })
 const bigArr = [[], [], []]
 let player = 'X'
 let lastEntry
+let winner
+
+function checkWinner() {
+    if (bigArr[0][0] === bigArr[0][1] && bigArr[0][0] === bigArr[0][2]) {
+        winner = bigArr[0][0]
+        console.log('winner: ' + winner)
+    } else if (bigArr[1][0] === bigArr[1][1] && bigArr[1][0] === bigArr[1][2]) {
+        winner = bigArr[1][0]
+        console.log('winner: ' + winner)
+    } else if (bigArr[2][0] === bigArr[2][1] && bigArr[2][0] === bigArr[2][2]) {
+        winner = bigArr[2][0]
+        console.log('winner: ' + winner)
+    }
+
+    if (bigArr[0][0] === bigArr[1][0] && bigArr[0][0] === bigArr[2][0]) {
+        winner = bigArr[0][0]
+        console.log('winner: ' + winner)
+    } else if (bigArr[0][1] === bigArr[1][1] && bigArr[0][1] === bigArr[2][1]) {
+        winner = bigArr[0][1]
+        console.log('winner: ' + winner)
+    } else if (bigArr[0][2] === bigArr[1][2] && bigArr[0][2] === bigArr[2][2]) {
+        winner = bigArr[0][2]
+        console.log('winner: ' + winner)
+    }
+
+    if (bigArr[0][0] === bigArr[1][1] && bigArr[0][0] === bigArr[2][2]) {
+        winner = bigArr[0][0]
+        console.log('winner: ' + winner)
+    } else if (bigArr[0][2] === bigArr[1][1] && bigArr[0][2] === bigArr[2][0]) {
+        winner = bigArr[0][2]
+        console.log('winner: ' + winner)
+    }
+}
 
 function play(num, btnEl) {
     btnEl.innerText = player
     lastEntry = player
+
     if (num <= 3) {
         if (num === 1) {
             bigArr[0][0] = player
@@ -33,29 +67,30 @@ function play(num, btnEl) {
         } else {
             bigArr[0][2] = player
         }
-    } else if(num <= 6) {
-        if(num === 4) {
+    } else if (num <= 6) {
+        if (num === 4) {
             bigArr[1][0] = player
-        } else if(num === 5) {
+        } else if (num === 5) {
             bigArr[1][1] = player
         } else {
             bigArr[1][2] = player
         }
     } else {
-        if(num === 7) {
+        if (num === 7) {
             bigArr[2][0] = player
-        } else if(num === 8) {
+        } else if (num === 8) {
             bigArr[2][1] = player
         } else {
             bigArr[2][2] = player
         }
     }
 
-    if(lastEntry === 'X') {
+    if (lastEntry === 'X') {
         player = 'O'
-    }else {
+    } else {
         player = 'X'
     }
-    
-    console.log(bigArr)
+
+    checkWinner()
 }
+
