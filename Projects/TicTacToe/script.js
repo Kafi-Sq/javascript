@@ -22,6 +22,7 @@ const bigArr = [[], [], []]
 let player = 'X'
 let lastEntry
 let winner
+let HTML
 
 function checkWinner() {
     if (bigArr[0][0] === bigArr[0][1] && bigArr[0][0] === bigArr[0][2]) {
@@ -53,7 +54,19 @@ function checkWinner() {
         winner = bigArr[0][2]
         console.log('winner: ' + winner)
     }
+
+    if (winner === 'X' || winner === 'O') {
+        HTML = `<div class="winner"><div class="theWinner">Winner: ${winner}</div><button onclick="closeModal()" class="close">X</button></div>`
+        let body = document.querySelector('.field')
+        body.innerHTML += HTML
+    }
 }
+
+function closeModal() {
+    location.reload();
+}
+
+
 
 function play(num, btnEl) {
     btnEl.innerText = player
