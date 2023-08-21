@@ -18,6 +18,7 @@ const start = async () => {
     }
 }
 start()
+start()
 
 // const getText = (path) => {
 //     return new Promise((resolve, reject) => {
