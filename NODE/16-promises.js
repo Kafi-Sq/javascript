@@ -19,7 +19,6 @@ const start = async () => {
 }
 start()
 start()
-
 // const getText = (path) => {
 //     return new Promise((resolve, reject) => {
 //         readFile(path, 'utf-8', (err, result) => {
